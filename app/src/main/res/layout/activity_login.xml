@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@drawable/buttoncustom">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,6 +70,6 @@
             app:backgroundTint="@color/dark_yellow" />
 
     </LinearLayout>
-
+    </ScrollView>
 
 </LinearLayout>
