@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".slpashActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/buttoncustom">
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="140dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/fastfoodlogo"
+        ></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Find a better food"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"></TextView>
+
+
+</LinearLayout>
