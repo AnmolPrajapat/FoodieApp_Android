@@ -155,7 +155,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
 
             <Button
                 android:id="@+id/btnFB"
@@ -185,6 +186,20 @@
                 android:textColor="@color/black"
                 app:backgroundTint="@color/googlebg" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/alreadyRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btncustomise"
+            android:gravity="center"
+            android:text="Already register? Login"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:backgroundTint="@color/light_yellow" />
 
     </LinearLayout>
     </ScrollView>

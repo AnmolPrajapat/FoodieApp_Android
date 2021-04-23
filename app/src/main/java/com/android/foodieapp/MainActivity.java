@@ -1,7 +1,9 @@
 package com.android.foodieapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +13,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button login , register;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +43,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+    }
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Exit app")
+                .setMessage("Do yo want to close the app")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.super.onBackPressed();
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", null).setCancelable(false);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

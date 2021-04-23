@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText name, email, password,phone;
-    Button Register, fb,google;
+    Button Register, fb,google,AlRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         getSupportActionBar().setTitle("Sign Up");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         Register=(Button)findViewById(R.id.btnRegister);
         fb= (Button)findViewById(R.id.btnFB);
         google=(Button)findViewById(R.id.btnGoogle);
+        AlRegister= (Button)findViewById(R.id.alreadyRegister);
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +60,21 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RegisterActivity.this, "Registering you with google", Toast.LENGTH_SHORT).show();
+                Intent intent9 = new Intent(RegisterActivity.this,GoogleActvity.class);
+                startActivity(intent9);
             }
         });
+        AlRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

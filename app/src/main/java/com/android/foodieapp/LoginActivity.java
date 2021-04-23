@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setTitle("Login here");
+        getSupportActionBar().setTitle("Sign In");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Lname= (EditText)findViewById(R.id.loginEmail);
@@ -33,5 +33,10 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Login with"+" \n Email :"+ Ln + "\n Password :"+lp  , Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }
