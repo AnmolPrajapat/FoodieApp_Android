@@ -1,36 +1,65 @@
 package com.android.foodieapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.foodieapp.databinding.ActivityLoginBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
-    EditText Lname,Lpass;
-    Button Login;
+    ActivityLoginBinding binding;
+    ProgressDialog dialog;
+    FirebaseAuth auth;
+//    EditText Lname,Lpass;
+//    Button Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         getSupportActionBar().setTitle("Sign In");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Lname= (EditText)findViewById(R.id.loginEmail);
-        Lpass= (EditText)findViewById(R.id.loginPassword);
+        auth= FirebaseAuth.getInstance();
 
-        Login = (Button)findViewById(R.id.LoginActivityBtn);
+        dialog = new ProgressDialog(LoginActivity.this);
+        dialog.setTitle("Login into your acccount");
+        dialog.setMessage("Sigining into your account");
 
-        Login.setOnClickListener(new View.OnClickListener() {
+
+        binding.LoginActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Ln, lp;
-                Ln = Lname.getText().toString();
-                lp = Lpass.getText().toString();
-                Toast.makeText(LoginActivity.this, "Login with"+" \n Email :"+ Ln + "\n Password :"+lp  , Toast.LENGTH_SHORT).show();
+                dialog.show();
+                auth.signInWithEmailAndPassword(binding.loginEmail.getText().toString(),binding.loginPassword.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                dialog.dismiss();
+                                if(task.isSuccessful()){
+                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                    startActivity(intent);
+                                    Toast.makeText(LoginActivity.this, "Login with your account"+binding.loginEmail.getText().toString(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
     }
