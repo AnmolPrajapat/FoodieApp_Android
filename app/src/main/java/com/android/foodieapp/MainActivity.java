@@ -53,8 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MainActivity.super.onBackPressed();
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(intent);
                         finish();
+                        System.exit(0);
                     }
                 })
                 .setNegativeButton("No", null).setCancelable(false);

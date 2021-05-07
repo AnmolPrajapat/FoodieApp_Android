@@ -70,6 +70,41 @@
             android:layout_marginBottom="30dp"
             app:backgroundTint="@color/dark_yellow" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
+
+            <Button
+                android:id="@+id/btFB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttoncustom"
+                android:drawableLeft="@drawable/facebook"
+                android:gravity="center"
+                android:text="Facebook"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/fbcolor" />
+
+            <Button
+                android:id="@+id/btGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttoncustom"
+                android:drawableLeft="@drawable/google"
+                android:gravity="center"
+                android:text="Google"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/googlebg" />
+        </LinearLayout>
+
     </LinearLayout>
     </ScrollView>
 

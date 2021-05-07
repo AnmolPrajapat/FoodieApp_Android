@@ -1,7 +1,7 @@
 package com.android.foodieapp.Models;
 
 public class Customer {
-    String name, email, password,phone;
+    String name, email, password,phone,profilePic, ID;
 
     public Customer(String name, String email, String password, String phone) {
         this.name = name;
@@ -10,6 +10,22 @@ public class Customer {
         this.phone = phone;
     }
     public Customer(){}
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
 
     public String getName() {
         return name;
